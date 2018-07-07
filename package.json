@@ -1,0 +1,15 @@
+{
+  "name": "script-progress",
+  "version": "1.0.0",
+  "description": "Estimate script execution time",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "script-progress": "./index.js"
+  },
+  "dependencies": {
+    "blueimp-md5": "^2.10.0",
+    "cli-progress": "^2.0.0",
+    "find-cache-dir": "^2.0.0"
+  }
+}
