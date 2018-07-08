@@ -20,5 +20,10 @@ Change your build script in `package.json`:
 + "build-js": "react-scripts build",
 + "build": "script-progress yarn build-js",
 ```
+or just
+```diff
+- "build": "react-scripts build",
++ "build": "script-progress react-scripts build",
+```
 
 The script will show a progress bar on a second and subsequent runs.
