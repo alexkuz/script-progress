@@ -1,6 +1,6 @@
 # script-progress
 
-Simple tool for heavy NPM/Yarn scripts that run for long but roughly identical time. It's not intended to be exact but gives you a sense of estimated time.
+A simple tool for heavy NPM/Yarn scripts that run for a long but roughly identical time. It's not intended to be precise but gives you some sense of execution time.
 
 ### Installation
 
