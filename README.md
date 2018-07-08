@@ -26,4 +26,4 @@ or just
 + "build": "script-progress react-scripts build",
 ```
 
-The script will show a progress bar on a second and subsequent runs.
+The script will show a progress bar on the second and subsequent runs.
