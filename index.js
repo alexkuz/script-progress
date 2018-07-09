@@ -5,6 +5,13 @@ var md5 = require('blueimp-md5');
 var progress = require('cli-progress');
 var findCacheDir = require('find-cache-dir');
 
+function median(arr) {
+  arr = arr.slice(0);
+  var middle = (arr.length + 1) / 2,
+    sorted = arr.sort(function(a,b) { return a - b });
+  return (sorted.length % 2) ? sorted[middle - 1] : (sorted[middle - 1.5] + sorted[middle - 0.5]) / 2;
+};
+
 var bar = new progress.Bar({
   format: 'progress [{bar}] {percentage}%',
   clearOnComplete: true
@@ -26,9 +33,11 @@ if (!cache || !Array.isArray(cache.intervals)) {
   cache = DEFAULT_CACHE;
 }
 
-var eta = cache.intervals.reduce(function (acc, i) {
-  return acc + i / cache.intervals.length;
-}, 0);
+var med = median(cache.intervals);
+
+var eta = Math.max.apply(Math, cache.intervals.filter(function(val) {
+  return val / med < 1.5;
+}));
 
 var refreshInterval;
 
