@@ -35,9 +35,9 @@ if (!cache || !Array.isArray(cache.intervals)) {
 
 var med = median(cache.intervals);
 
-var eta = Math.max.apply(Math, cache.intervals.filter(function(val) {
+var eta = med ? Math.max.apply(Math, cache.intervals.filter(function(val) {
   return val / med < 1.5;
-}));
+})) : 0;
 
 var refreshInterval;
 
