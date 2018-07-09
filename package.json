@@ -1,6 +1,6 @@
 {
   "name": "script-progress",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Estimate script execution time",
   "main": "index.js",
   "license": "MIT",
