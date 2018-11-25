@@ -90,6 +90,11 @@ ls.stderr.on('data', function (data) {
 
 ls.on('close', (code) => {
   var diff = getDiff();
+
+  if (code) {
+    process.exit(code);
+  }
+
   if (!eta || diff / eta > 0.1) {
     cache.intervals.push(diff);
     if (cache.intervals.length > 5) {
