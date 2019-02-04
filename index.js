@@ -20,6 +20,12 @@ var cacheThunk = findCacheDir({ name: 'script-progress', create: true, thunk: tr
 
 var args = process.argv.slice(2);
 var cmd = args.shift();
+
+if (!process.stdout.isTTY) {
+  var res = cp.spawnSync(cmd, args, { env: process.env, stdio: [process.stdin, process.stdout, process.stderr] });
+  process.exit(res.status);
+}
+
 var cacheFileName = md5(args.join(' '));
 
 var DEFAULT_CACHE = { intervals: [] };
